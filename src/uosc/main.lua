@@ -207,7 +207,13 @@ config = {
 			for _, definition in ipairs(split(options.chapter_range_patterns, ';+ *')) do
 				local name_patterns = split(definition, ' *:')
 				local name, patterns = name_patterns[1], name_patterns[2]
-				if name and patterns then alt_patterns[name] = split(patterns, ',') end
+				if name and patterns then
+					local pats = {}
+					for _, p in ipairs(split(patterns, ',')) do
+						pats[#pats + 1] = p:lower()
+					end
+					alt_patterns[name] = pats
+				end
 			end
 		end
 
@@ -697,7 +703,7 @@ mp.observe_property('track-list', 'native', function(name, value)
 	Elements:trigger('dispositions')
 end)
 mp.observe_property('editions', 'number', function(_, editions)
-	set_state('has_many_edition', editions and editions > 1)
+	if editions then set_state('has_many_edition', editions > 1) end
 	Elements:trigger('dispositions')
 end)
 mp.observe_property('chapter-list', 'native', function(_, chapters)
