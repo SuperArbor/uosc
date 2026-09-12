@@ -1,5 +1,5 @@
-$ZipURL = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.zip"
-$ConfURL = "https://github.com/tomasklaen/uosc/releases/latest/download/uosc.conf"
+$ZipURL = "https://github.com/SuperArbor/uosc/releases/latest/download/uosc.zip"
+$ConfURL = "https://github.com/SuperArbor/uosc/releases/latest/download/uosc.conf"
 $Files = "scripts/uosc", "fonts/uosc_icons.otf", "fonts/uosc_textures.ttf", "scripts/uosc_shared", "scripts/uosc.lua"
 
 # Determine install directory
